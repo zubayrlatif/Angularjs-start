@@ -11,7 +11,8 @@
     </head>
     <body>
         <!-- Working Area - Start-->
-        <h1>Working Area</h1>
+        <div>Center</div>
+        <img id="imageCropBox" src="http://lorempixel.com/1600/1200/" alt="Dynamic Image" />
         <!-- Working Area - End-->
 
         <!-- Custom Components - Start -->
@@ -32,6 +33,18 @@
 
             });
 
+            $('#imageCropBox').cropbox({
+                width: 200,
+                height: 200
+            }, function () {
+                //on load
+                console.log('Url: ' + this.getDataURL());
+            }).on('cropbox', function (e, data) {
+                console.log('crop window: ' + data);
+            });
+
         </script>
         <!-- Script Area - End -->
+
+    </body>
 </html>
